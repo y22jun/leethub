@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAX_HASH 1373
+#define MAX_HASH 10453
 #define HASH_KEY(key) key%MAX_HASH
 typedef struct Node
 {
