@@ -4,16 +4,12 @@
 int min(int a, int b) {
     return a < b ? a : b;
 }
-
 int minPathSum(int** grid, int gridSize, int* gridColSize) {
     int m = gridSize;
     int n = *gridColSize;
 
     // 동적 계획법을 위한 2D 배열 동적 할당
-    int** dp = (int**)malloc(m * sizeof(int*));
-    for (int i = 0; i < m; i++) {
-        dp[i] = (int*)malloc(n * sizeof(int));
-    }
+    int dp[m][n];
 
     // 시작 지점의 최소 경로 합은 그리드의 첫 번째 원소와 같음
     dp[0][0] = grid[0][0];
@@ -36,11 +32,6 @@ int minPathSum(int** grid, int gridSize, int* gridColSize) {
     // 최종 결과는 마지막 셀의 최소 경로 합
     int result = dp[m - 1][n - 1];
 
-    // 동적으로 할당한 메모리를 해제
-    for (int i = 0; i < m; i++) {
-        free(dp[i]);
-    }
-    free(dp);
-
+    
     return result;
 }
